@@ -1,0 +1,40 @@
+path: ../dataset
+train: images/train
+val: images/val
+
+nc: 34
+names:
+  - circle_1
+  - circle_2
+  - circle_3
+  - circle_4
+  - circle_5
+  - circle_6
+  - circle_7
+  - circle_8
+  - circle_9
+  - bamboo_1
+  - bamboo_2
+  - bamboo_3
+  - bamboo_4
+  - bamboo_5
+  - bamboo_6
+  - bamboo_7
+  - bamboo_8
+  - bamboo_9
+  - character_1
+  - character_2
+  - character_3
+  - character_4
+  - character_5
+  - character_6
+  - character_7
+  - character_8
+  - character_9
+  - north
+  - south
+  - west
+  - east
+  - green
+  - red
+  - white
