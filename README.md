@@ -21,9 +21,10 @@ dataset/
 
 ## Run the model
 下載這個檔案並解壓縮 (建議使用WinRAR)
-[text](https://drive.google.com/file/d/1zmgVjSa2nh4hwUGe5Pv9Msf3DVUH5B7M/view?usp=drive_link)
+[Link](https://drive.google.com/file/d/1zmgVjSa2nh4hwUGe5Pv9Msf3DVUH5B7M/view?usp=drive_link)
 
 將```train2017```裡的圖片 (xxxxxx.jpg) 全部貼到```dataset/images/train```資料夾下面 (不要再包多的資料夾)
+
 將```val2017```裡的圖片 (xxxxxx.jpg) 全部貼到```dataset/images/val```資料夾下面 (不要再包多的資料夾)
 
 執行 ```test..py```
