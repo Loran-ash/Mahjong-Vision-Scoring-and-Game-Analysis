@@ -19,7 +19,8 @@ dataset/
 ```
 在```json2yolo.py```已經處理了這件事，只是記錄一下，各位可以不用管這一塊。
 
-## Run the model
+
+## Train the model
 下載這個檔案並解壓縮 (建議使用WinRAR)
 [Link](https://drive.google.com/file/d/1zmgVjSa2nh4hwUGe5Pv9Msf3DVUH5B7M/view?usp=drive_link)
 
@@ -27,7 +28,23 @@ dataset/
 
 將```val2017```裡的圖片 (xxxxxx.jpg) 全部貼到```dataset/images/val```資料夾下面 (不要再包多的資料夾)
 
-執行 ```test..py```
+執行 ```test_train.py```
+
+
+## Make a prediction with trained models
+
+將想辨識的圖片放進```test_images```資料夾裡面。
+
+```python
+from test_pred import prediction
+result = prediction() # 也可以填入模型路徑 (string) 作為引數
+```
+
+或直接執行```test_pred.py```
+
+result可被視覺化，請將```test_pred.py```，if __name__ == "__main__": 的註解部份去掉，再直接執行。
+
+
 
 
 
