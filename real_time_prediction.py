@@ -3,10 +3,10 @@ from ultralytics import YOLO
 from gradio_webrtc import WebRTC
 import math
 import time
+from yolo_classify import convert_label
 
 
 model = YOLO("./trained_model/best.pt")
-
 
 def real_time_predict(model, classNames, cap=cv2.VideoCapture(0)):
 
@@ -17,7 +17,7 @@ def real_time_predict(model, classNames, cap=cv2.VideoCapture(0)):
     #while True:
     ret, img = cap.read()
     results = model(img, stream=True)
-
+    
     for r in results:
         boxes = r.boxes
 
@@ -52,6 +52,32 @@ def real_time_predict(model, classNames, cap=cv2.VideoCapture(0)):
 
     # cap.release()
     # cv2.destroyAllWindows()
+
+def detection(image, last_result):
+    image = cv2.resize(image, (150, 200)) #之所以size這麼小是因為電腦效能的原因
+    try:
+        result = model.predict(image)
+        if len(result) == 0 or len(result[0].boxes) == 0:
+            return image, last_result
+        tile_labels = []
+
+        for r in result:
+            if hasattr(r, "boxes") and r.boxes:
+                for box in r.boxes:
+                    cls_id = int(box.cls[0])
+                    label = model.names[cls_id]
+                    tile_labels.append(convert_label(label))
+
+        #if len(tile_labels) != 17:
+        #    return f"⚠️ 檢測牌數錯誤（辨識到 {len(tile_labels)} 張）: {tile_labels}"
+
+        #return ", ".join(tile_labels)
+        #image = draw_boxes(result, image)
+        #pred_text = "testtest"
+    except Exception as e:
+        return image, str(e)
+    # prev_result = ", ".join(tile_labels)
+    return image, ", ".join(tile_labels)
 
 if __name__ == "__main__":
     cap=cv2.VideoCapture(0)
