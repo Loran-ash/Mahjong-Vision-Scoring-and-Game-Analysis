@@ -44,7 +44,9 @@ result = prediction() # 也可以填入模型路徑 (string) 作為引數
 
 result可被視覺化，請將```test_pred.py```，if __name__ == "__main__": 的註解部份去掉，再直接執行。
 
+## Reference
 
+1. https://huggingface.co/spaces/awacke1/WebRTC-Yolov10-Webcam-Stream-1/tree/9ffc08341a687f4134da043f2265d4c009bbd22c
 
 
 
