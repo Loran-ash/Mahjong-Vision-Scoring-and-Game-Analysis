@@ -2,3 +2,4 @@ coco*
 util*
 *.jpg
 runs/
+__pycache__/
