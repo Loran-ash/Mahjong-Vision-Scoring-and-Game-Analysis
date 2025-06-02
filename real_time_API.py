@@ -4,7 +4,7 @@ from real_time_prediction import real_time_predict
 
 app = Flask(__name__)
 
-cap=cv2.VideoCapture(1)
+cap=cv2.VideoCapture(1)  #預設使用Droidcam, 使用電腦配備攝像頭請將參數改為0
 cap.set(3, 640)
 cap.set(4, 480)
 image, tile_labels = real_time_predict(cap)

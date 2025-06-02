@@ -15,14 +15,14 @@ with gr.Blocks() as demo:
 
     gr.Markdown("## 步驟 2：確認或修改牌組")
     with gr.Column():
-        gr.Image(value="intro.png", label="🧾 牌名格式說明", show_label=True, interactive=False, elem_id="tile-guide")
+        #gr.Image(value="intro.png", label="🧾 牌名格式說明", show_label=True, interactive=False, elem_id="tile-guide")
         #text_output = gr.Label(label="模型辨識結果")
         tile_output = gr.Textbox(label="🧾 可編輯牌組（如 1m,2m,3p...）", lines=2, elem_id="output-box")
         btn = gr.Button("從Webcam擷取影像")
         btn.click(fn=get_response_fromAPI, outputs=tile_output)
 
-    stream = gr.Image(sources="webcam", streaming=True)
-    stream.stream(fn=detection, inputs=[stream, tile_output], outputs=[stream, tile_output])
+    #stream = gr.Image(sources="webcam", streaming=True)
+    #stream.stream(fn=detection, inputs=[stream, tile_output], outputs=[stream, tile_output])
 
 
     analyze_btn = gr.Button("📏 分析此牌組 → 向聽與建議")
