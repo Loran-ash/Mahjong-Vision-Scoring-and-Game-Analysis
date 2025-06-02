@@ -1,6 +1,5 @@
 import cv2
 from ultralytics import YOLO
-from gradio_webrtc import WebRTC
 import math
 import time
 from yolo_classify import convert_label, tile_to_chinese

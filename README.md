@@ -14,6 +14,12 @@ Install the ultralytics package from PyPI (Pytorch shuld be prepared.)
 pip install -U ultralytics
 ```
 
+To ensure you have every packages installed.
+
+```bash
+pip install -r requirements.txt
+```
+
 ## Note
 這個dataset原本是COCO style format (json)，不能直接丟進YOLO，須使用轉換器轉成每張圖片對應一個.txt label
 它應該要長成這樣：
@@ -114,6 +120,7 @@ Thanks to everyone contributing to this project, including those not mentioned h
 4. https://docs.ultralytics.com/
 5. https://blog.csdn.net/weixin_44133371/article/details/137357947
 6. https://blog.csdn.net/qiaoyurensheng/article/details/123410218
+7. https://github.com/garyleung142857/cal-shanten-beta
 
 
 
