@@ -3,7 +3,7 @@ from ultralytics import YOLO
 from gradio_webrtc import WebRTC
 import math
 import time
-from yolo_classify import convert_label
+from yolo_classify import convert_label, tile_to_chinese
 import requests
 
 
@@ -118,13 +118,25 @@ def detection(image, last_result):
 
 def get_response_fromAPI():
     response = requests.get('http://localhost:5000/output')
+    tile_labels = []
     if response.status_code == 200:
         data = response.json()
+        for t in str(data).split(","):
+            t = t.strip()
+            if not t:
+                continue
+
+            converted = tile_to_chinese(t)
+            if converted:
+                tile_labels.append(converted)
+            else:
+                tile_labels.append(t)
+
         print("data: ", data)
     else:
         print("failed")
     
-    return str(data)
+    return ", ".join(tile_labels)
 
 if __name__ == "__main__":
     cap=cv2.VideoCapture(1)
