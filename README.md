@@ -9,7 +9,7 @@
 
 
 ## Setup instruction
-Install the ultralytics package from PyPI (要先準備好Pytorch)
+Install the ultralytics package from PyPI (Pytorch shuld be prepared.)
 ```sh
 pip install -U ultralytics
 ```
@@ -33,30 +33,28 @@ dataset/
 ## Train the model
 We are training the model with [YOLOv11](https://docs.ultralytics.com/)
 
-下載這個檔案並解壓縮 (建議使用WinRAR)
+Download this folder and unzip it. (WinRAR is recommanded)
 [Link](https://drive.google.com/file/d/1zmgVjSa2nh4hwUGe5Pv9Msf3DVUH5B7M/view?usp=drive_link)
 
-將```train2017```裡的圖片 (xxxxxx.jpg) 全部貼到```dataset/images/train```資料夾下面 (不要再包多的資料夾)
+Paste all the images (xxxxxx.jpg) from ``train2017`` into the ``dataset/images/train`` folder (don't wrap any more folders).
 
-將```val2017```裡的圖片 (xxxxxx.jpg) 全部貼到```dataset/images/val```資料夾下面 (不要再包多的資料夾)
+Paste all the images (xxxxxx.jpg) from ``val2017`` into the ``dataset/images/val`` folder (don't wrap any more folders).
 
-執行 ```test_train.py```
+Run ```test_train.py```
 
->也可參考我們自製的資料集 [Link](https://drive.google.com/drive/folders/1tJOyyNNLBpiCzEqrtbJePKiDOmigqr1a?usp=sharing)
+>You can also refer to our dataset: [Link](https://drive.google.com/drive/folders/1tJOyyNNLBpiCzEqrtbJePKiDOmigqr1a?usp=sharing)
 
 
 ## Make a prediction with trained models
 
-將想辨識的圖片放進```test_images```資料夾裡面。
+Put the image you want to predict into the ```test_images`` folder.
 
 ```python
 from test_pred import prediction
 result = prediction() # 也可以填入模型路徑 (string) 作為引數
 ```
 
-或直接執行```test_pred.py```
-
-result可被視覺化，請將```test_pred.py```，if __name__ == "__main__": 的註解部份去掉，再直接執行。
+Or just run ```test_pred.py```
 
 ## Example results
 
@@ -68,12 +66,15 @@ Run the coomands
 ```bash
 python page.py
 ```
-這將會啟動WebUI，預設在```http://localhost:7860/```
+This will launch WebUI，the port is on ```http://localhost:7860/``` by default.
+
 
 ```bash
 python real_time_API.py
 ```
-因為某些技術上的原因，這將提供擷取網路攝像頭影像的功能。
+For some technical reasons, this will provide the function to capture webcam images.
+
+>Note: We set the webcam as ```cap=cv2.VideoCapture(1)``` by default. In case you have other cameras, just change the parameter (ex: ```cap=cv2.VideoCapture(0)```).
 
 ### Usage Demonstration
 
